@@ -463,6 +463,14 @@ class GATTToolBackend(BLEBackend):
         rval = self._receiver.last_value("value", "after").split()[1:]
         return bytearray([int(x, 16) for x in rval])
 
+    def set_mtu(self, mtu_value):
+        """
+        Sets the mtu value to ble device
+        :param mtu_value: the value of mtu.
+        :return:
+        """
+        self.sendline('mtu %s' % mtu_value)
+
     def reset(self):
         subprocess.Popen(["sudo", "systemctl", "restart", "bluetooth"]).wait()
         subprocess.Popen([
