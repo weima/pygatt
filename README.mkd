@@ -38,7 +38,7 @@ backend, install the optional dependencies with:
 
 Install the latest development version of `pygatt` with pip:
 
-    $ pip install git+https://github.com/peplin/pygatt
+    $ pip install git+https://github.com/weima/pygatt
 
 ## Example Use
 
