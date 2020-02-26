@@ -115,7 +115,7 @@ class BLEDevice(object):
 
         return value_handle, characteristic_config_handle
 
-    def subscribe(self, uuid, callback=None, indication=False):
+    def subscribe(self, uuid, callback=None, indication=False, wait_for_response=False):
         """
         Enable notifications or indications for a characteristic and register a
         callback function to be called whenever a new value arrives.
@@ -144,7 +144,7 @@ class BLEDevice(object):
                 self.char_write_handle(
                     characteristic_config_handle,
                     properties,
-                    wait_for_response=False
+                    wait_for_response=wait_for_response
                 )
                 log.info("Subscribed to uuid=%s", uuid)
                 self._subscribed_handlers[value_handle] = properties
